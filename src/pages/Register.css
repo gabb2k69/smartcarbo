@@ -1,0 +1,85 @@
+.register-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* Cabeçalho */
+
+.register-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.register-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+}
+
+/* Conteúdo */
+
+.register-content {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+/* Menu lateral */
+
+.register-sidebar {
+  width: 260px;
+  padding: 45px 30px;
+  border-right: 1px solid #e0e0e0;
+  background-color: #fafafa;
+}
+
+.register-sidebar h2 {
+  margin: 0 0 35px;
+  font-size: 20px;
+  color: #222222;
+}
+
+.register-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  color: #999999;
+}
+
+.register-step span {
+  font-size: 20px;
+}
+
+.register-step p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.register-step.active {
+  color: #222222;
+  font-weight: 600;
+}
+
+/* Área do formulário */
+
+.register-form-area {
+  flex: 1;
+  padding: 60px 80px;
+}
+
+.register-form-area h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #222222;
+}
+
+.register-form-area > p {
+  margin-top: 10px;
+  color: #777777;
+  font-size: 16px;
+}
