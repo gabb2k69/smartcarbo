@@ -83,3 +83,140 @@
   color: #777777;
   font-size: 16px;
 }
+/* Cabeçalho do formulário */
+
+.register-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.register-form-header h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #222222;
+}
+
+.register-form-header p {
+  margin: 8px 0 0;
+  color: #777777;
+  font-size: 15px;
+}
+
+.register-form-header span {
+  font-size: 13px;
+  color: #777777;
+}
+
+.register-form-header a {
+  color: #333333;
+  font-weight: 600;
+}
+
+/* Formulário */
+
+.register-form {
+  width: 100%;
+  max-width: 650px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #555555;
+}
+
+/* Termos */
+
+.terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #555555;
+}
+
+.terms input {
+  margin-top: 2px;
+}
+
+.terms label {
+  line-height: 1.4;
+}
+
+.terms a {
+  color: #333333;
+}
+
+/* Botão */
+
+.form-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.form-button button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.form-button button:hover {
+  background-color: #222222;
+}
+.logo-placeholder {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #555555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.register-header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: #f5f5f5;
+}
+
+.register-header h1 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222222;
+}

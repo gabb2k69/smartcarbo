@@ -5,8 +5,9 @@ function Register() {
     <div className="register-page">
 
       <header className="register-header">
-        <h1>SMART CARBO</h1>
-      </header>
+  <div className="logo-placeholder">□</div>
+  <h1>SMARTCARBO</h1>
+</header>
 
       <main className="register-content">
 
@@ -34,11 +35,75 @@ function Register() {
           </div>
         </aside>
 
-        <section className="register-form-area">
-          <h2>Crie sua conta</h2>
-          <p>Comece sua jornada com o Smart Carbo.</p>
-        </section>
+      <section className="register-form-area">
 
+  <div className="register-form-header">
+    <div>
+      <h2>Crie sua conta</h2>
+      <p>Comece sua jornada para uma vida mais saudável.</p>
+    </div>
+
+    <span>
+      Já tem uma conta? <a href="#">Fazer login</a>
+    </span>
+  </div>
+
+  <form className="register-form">
+
+    <div className="form-group">
+      <label htmlFor="name">Nome completo</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Seu nome"
+      />
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="email">E-mail</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="seuemail@exemplo.com"
+      />
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="password">Senha</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="••••••••"
+      />
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="confirmPassword">Confirmar senha</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        placeholder="••••••••"
+      />
+    </div>
+
+    <div className="terms">
+      <input type="checkbox" id="terms" />
+
+      <label htmlFor="terms">
+        Concordo com os <a href="#">Termos de Uso</a> e{" "}
+        <a href="#">Política de Privacidade</a>
+      </label>
+    </div>
+
+    <div className="form-button">
+      <button type="submit">
+        Continuar →
+      </button>
+    </div>
+
+  </form>
+
+</section>
       </main>
 
     </div>
