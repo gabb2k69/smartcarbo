@@ -1,622 +1,808 @@
+:root {
+  --verde-escuro: #014f47;
+  --verde: #84b8ad;
+  --verde-claro: #a9cfca;
+  --off-white: #fffff7;
+  --cinza: #d7e0df;
+
+  --texto: #173b37;
+  --texto-secundario: #61736f;
+  --branco: #ffffff;
+  --erro: #b84242;
+}
+
+/* =========================================
+   RESET
+========================================= */
+
 * {
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
-  padding: 0;
 
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--off-white);
 
-  background-color: #ffffff;
-
-  color: #222222;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
-
-/* ========================================
+/* =========================================
    PÁGINA
-======================================== */
+========================================= */
 
 .login-page {
-  width: 100%;
   min-height: 100vh;
 
   display: flex;
+  flex-direction: column;
 
-  background-color: #ffffff;
+  background-color: var(--off-white);
+
+  color: var(--texto);
 }
 
+/* =========================================
+   HEADER
+========================================= */
 
-/* ========================================
-   LADO ESQUERDO
-======================================== */
-
-.login-left {
-  width: 50%;
-  min-height: 100vh;
+.login-header {
+  width: 100%;
+  height: 72px;
 
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+  padding: 0 42px;
+
+  background-color: var(--verde-escuro);
+
+  border-bottom: 1px solid
+    rgba(255, 255, 255, 0.08);
+}
+
+.login-header-brand {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  text-decoration: none;
+}
+
+.login-header-panther {
+  width: 43px;
+  height: 43px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.login-header-logo {
+  width: 155px;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.login-header-slogan {
+  width: 190px;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+
+  opacity: 0.9;
+}
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+.login-content {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 55px 40px 65px;
+
+  background-color: var(--off-white);
+}
+
+/* =========================================
+   CARD PRINCIPAL
+========================================= */
+
+.login-container {
+  width: 100%;
+  max-width: 1050px;
+
+  min-height: 570px;
+
+  display: grid;
+
+  grid-template-columns:
+    0.9fr
+    1.1fr;
+
+  overflow: hidden;
+
+  background-color: var(--branco);
+
+  border: 1px solid var(--cinza);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 18px 45px
+    rgba(1, 79, 71, 0.09);
+}
+
+/* =========================================
+   ÁREA DA MARCA
+========================================= */
+
+.login-brand-area {
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
   flex-direction: column;
 
   align-items: center;
   justify-content: center;
 
-  background-color: #f7f7f7;
+  padding: 50px 40px;
 
-  border-right: 1px solid #dddddd;
+  background-color: var(--verde-escuro);
 
-  padding: 40px;
-}
-
-
-/* ========================================
-   LOGO
-======================================== */
-
-.brand {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 15px;
-
-  margin-bottom: 90px;
-}
-
-
-/* Símbolo provisório */
-
-.logo-placeholder {
-  width: 70px;
-  height: 70px;
-
-  position: relative;
-
-  background-color: #ffffff;
-
-  border: 1px solid #777777;
-}
-
-
-.logo-placeholder span:first-child {
-  position: absolute;
-
-  width: 1px;
-  height: 100%;
-
-  background-color: #777777;
-
-  left: 50%;
-  top: 0;
-
-  transform: rotate(45deg);
-}
-
-
-.logo-placeholder span:last-child {
-  position: absolute;
-
-  width: 1px;
-  height: 100%;
-
-  background-color: #777777;
-
-  left: 50%;
-  top: 0;
-
-  transform: rotate(-45deg);
-}
-
-
-/* Nome */
-
-.brand-name h1 {
-  margin: 0;
-
-  font-size: 27px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
-}
-
-
-.brand-name p {
-  margin: 5px 0 0;
-
-  font-size: 9px;
-
-  font-weight: bold;
-
-  letter-spacing: 2px;
-
-  color: #555555;
-}
-
-
-/* ========================================
-   TEXTO DO LADO ESQUERDO
-======================================== */
-
-.brand-text {
   text-align: center;
 }
 
+/* =========================================
+   DECORAÇÕES
+========================================= */
 
-.brand-text p {
-  margin: 0;
+.brand-decoration {
+  position: absolute;
 
-  font-size: 20px;
+  border: 1px solid
+    rgba(169, 207, 202, 0.16);
 
-  line-height: 1.6;
+  border-radius: 50%;
 
-  font-weight: 400;
-
-  color: #333333;
+  pointer-events: none;
 }
 
+.brand-decoration-one {
+  width: 280px;
+  height: 280px;
 
-/* ========================================
-   LADO DIREITO
-======================================== */
+  top: -130px;
+  left: -130px;
+}
 
-.login-right {
-  width: 50%;
-  min-height: 100vh;
+.brand-decoration-two {
+  width: 210px;
+  height: 210px;
 
+  right: -105px;
+  bottom: -105px;
+}
+
+/* =========================================
+   PANTERA
+========================================= */
+
+.login-panther {
+  position: relative;
+  z-index: 2;
+
+  width: 145px;
+  height: 145px;
+
+  margin-bottom: 10px;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.login-brand-logo {
+  position: relative;
+  z-index: 2;
+
+  width: 245px;
+  max-width: 100%;
+
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   SLOGAN
+========================================= */
+
+.login-brand-slogan {
+  position: relative;
+  z-index: 2;
+
+  width: 210px;
+  max-width: 100%;
+
+  height: auto;
+
+  margin-top: 17px;
+
+  object-fit: contain;
+
+  opacity: 0.95;
+}
+
+/* =========================================
+   LINHA
+========================================= */
+
+.brand-line {
+  position: relative;
+  z-index: 2;
+
+  width: 38px;
+  height: 2px;
+
+  margin-top: 25px;
+
+  background-color: var(--verde);
+}
+
+/* =========================================
+   TEXTO DA MARCA
+========================================= */
+
+.login-brand-text {
+  position: relative;
+  z-index: 2;
+
+  max-width: 270px;
+
+  margin: 20px 0 0;
+
+  color:
+    rgba(255, 255, 255, 0.76);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   FORM AREA
+========================================= */
+
+.login-form-area {
   display: flex;
 
-  align-items: center;
+  flex-direction: column;
 
   justify-content: center;
 
-  background-color: #ffffff;
-
-  padding: 40px;
+  padding: 60px 75px;
 }
 
-
-/* ========================================
-   CONTAINER DO LOGIN
-======================================== */
-
-.login-container {
-  width: 100%;
-
-  max-width: 480px;
-}
-
-
-/* ========================================
+/* =========================================
    TÍTULO
-======================================== */
+========================================= */
 
 .login-title {
-  margin-bottom: 30px;
+  margin-bottom: 38px;
 }
 
+.login-label {
+  display: block;
 
-.login-title h2 {
-  margin: 0 0 8px;
+  margin-bottom: 9px;
 
-  font-size: 26px;
+  color: var(--verde);
+
+  font-size: 10px;
 
   font-weight: 700;
 
-  color: #222222;
+  letter-spacing: 2px;
 }
 
+.login-title h1 {
+  margin: 0;
+
+  color: var(--verde-escuro);
+
+  font-size: 32px;
+
+  line-height: 1.2;
+}
 
 .login-title p {
-  margin: 0;
+  margin: 11px 0 0;
+
+  color: var(--texto-secundario);
 
   font-size: 14px;
 
-  color: #777777;
+  line-height: 1.6;
 }
 
-
-/* ========================================
-   FORMULÁRIO
-======================================== */
+/* =========================================
+   FORM
+========================================= */
 
 .login-form {
   width: 100%;
 }
 
-
-.form-group {
+.login-form-group {
   width: 100%;
 
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 24px;
 }
 
-
-.form-group label {
-  display: block;
-
-  margin-bottom: 8px;
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  color: #222222;
-}
-
-
-.form-group input {
-  width: 100%;
-
-  height: 46px;
-
-  padding: 0 14px;
-
-  border: 1px solid #d2d2d2;
-
-  border-radius: 4px;
-
-  outline: none;
+.login-form-group > label,
+.login-password-label label {
+  color: var(--texto);
 
   font-size: 14px;
 
-  color: #222222;
-
-  background-color: #ffffff;
+  font-weight: 700;
 }
 
+/* =========================================
+   SENHA LABEL
+========================================= */
 
-.form-group input::placeholder {
-  color: #aaaaaa;
+.login-password-label {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 9px;
 }
 
+.login-password-label a {
+  color: var(--verde-escuro);
 
-.form-group input:focus {
-  border-color: #555555;
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-decoration: none;
 }
 
+.login-password-label a:hover {
+  color: var(--verde);
 
-/* ========================================
-   SENHA
-======================================== */
+  text-decoration: underline;
+}
 
-.password-input {
+/* =========================================
+   INPUTS
+========================================= */
+
+.login-form-group > input,
+.login-password-field input {
+  width: 100%;
+
+  height: 50px;
+
+  padding: 0 15px;
+
+  border: 1px solid var(--cinza);
+
+  border-radius: 6px;
+
+  outline: none;
+
+  background-color: var(--branco);
+
+  color: var(--texto);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-form-group input::placeholder {
+  color: #98a7a4;
+}
+
+.login-form-group > input:focus,
+.login-password-field input:focus {
+  border-color: var(--verde);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(132, 184, 173, 0.18);
+}
+
+/* =========================================
+   PASSWORD FIELD
+========================================= */
+
+.login-password-field {
   position: relative;
 
   width: 100%;
 }
 
-
-.password-input input {
-  padding-right: 45px;
+.login-password-field input {
+  padding-right: 85px;
 }
 
-
-.password-button {
+.login-password-button {
   position: absolute;
 
-  right: 10px;
+  right: 12px;
   top: 50%;
 
   transform: translateY(-50%);
 
   border: none;
 
-  background: transparent;
+  background-color: transparent;
 
-  color: #777777;
-
-  cursor: pointer;
-
-  font-size: 17px;
-}
-
-
-/* ========================================
-   OPÇÕES
-======================================== */
-
-.login-options {
-  width: 100%;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  margin-bottom: 20px;
+  color: var(--verde-escuro);
 
   font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
 }
 
+.login-password-button:hover {
+  color: var(--verde);
+}
 
-.remember-me {
+/* =========================================
+   ERROS
+========================================= */
+
+.login-input-error {
+  border-color: var(--erro) !important;
+}
+
+.login-error {
+  margin: 7px 0 0;
+
+  color: var(--erro);
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+/* =========================================
+   LEMBRAR DE MIM
+========================================= */
+
+.login-remember {
   display: flex;
 
   align-items: center;
 
-  gap: 7px;
+  gap: 8px;
 
-  color: #555555;
+  margin-top: 3px;
+}
+
+.login-remember input {
+  width: 16px;
+  height: 16px;
+
+  margin: 0;
+
+  accent-color: var(--verde-escuro);
 
   cursor: pointer;
 }
 
+.login-remember label {
+  color: var(--texto-secundario);
 
-.remember-me input {
-  width: 14px;
-  height: 14px;
+  font-size: 12px;
 
   cursor: pointer;
 }
 
-
-.login-options a {
-  color: #444444;
-
-  text-decoration: underline;
-}
-
-
-.login-options a:hover {
-  color: #000000;
-}
-
-
-/* ========================================
-   BOTÃO ENTRAR
-======================================== */
+/* =========================================
+   BOTÃO
+========================================= */
 
 .login-button {
   width: 100%;
 
-  height: 46px;
+  min-height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 30px;
 
   border: none;
 
-  border-radius: 4px;
+  border-radius: 6px;
 
-  background-color: #292929;
+  background-color:
+    var(--verde-escuro);
 
-  color: #ffffff;
+  color: var(--branco);
 
-  font-size: 14px;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-weight: 600;
+  font-size: 13px;
+
+  font-weight: 700;
 
   cursor: pointer;
 
-  transition: 0.2s;
-}
+  box-shadow:
+    0 5px 12px
+    rgba(1, 79, 71, 0.14);
 
+  transition: 0.2s ease;
+}
 
 .login-button:hover {
-  background-color: #111111;
+  background-color: #023f39;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 15px
+    rgba(1, 79, 71, 0.18);
 }
 
+.login-button-arrow {
+  font-size: 17px;
+}
 
-/* ========================================
-   DIVISOR
-======================================== */
+/* =========================================
+   CRIAR CONTA
+========================================= */
 
-.divider {
-  width: 100%;
-
+.login-register {
   display: flex;
 
   align-items: center;
-
-  gap: 12px;
-
-  margin: 25px 0;
-}
-
-
-.divider span {
-  flex: 1;
-
-  height: 1px;
-
-  background-color: #dddddd;
-}
-
-
-.divider p {
-  margin: 0;
-
-  font-size: 12px;
-
-  color: #777777;
-
-  white-space: nowrap;
-}
-
-
-/* ========================================
-   REDES SOCIAIS
-======================================== */
-
-.social-login {
-  width: 100%;
-
-  display: flex;
-
-  gap: 10px;
-}
-
-
-.social-button {
-  flex: 1;
-
-  height: 43px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border: 1px solid #d2d2d2;
-
-  border-radius: 4px;
-
-  background-color: #ffffff;
-
-  font-size: 18px;
-
-  font-weight: 600;
-
-  cursor: pointer;
-
-  color: #222222;
-
-  transition: 0.2s;
-}
-
-
-.social-button:hover {
-  background-color: #f5f5f5;
-
-  border-color: #aaaaaa;
-}
-
-
-/* ========================================
-   CADASTRO
-======================================== */
-
-.register {
-  width: 100%;
-
-  display: flex;
-
   justify-content: center;
 
   gap: 5px;
 
-  margin-top: 25px;
+  margin-top: 28px;
+
+  color: var(--texto-secundario);
 
   font-size: 12px;
-
-  color: #777777;
 }
 
+.login-register a {
+  color: var(--verde-escuro);
 
-.register a {
-  color: #222222;
-
-  font-weight: 600;
+  font-weight: 700;
 
   text-decoration: underline;
 }
 
-
-.register a:hover {
-  color: #000000;
+.login-register a:hover {
+  color: var(--verde);
 }
 
+/* =========================================
+   FOOTER
+========================================= */
 
-/* ========================================
-   RESPONSIVIDADE
-======================================== */
+.login-footer {
+  width: 100%;
 
-@media (max-width: 800px) {
+  display: flex;
 
-  .login-page {
-    flex-direction: column;
-  }
+  align-items: center;
+  justify-content: space-between;
 
+  padding: 18px 42px;
 
-  .login-left {
-    width: 100%;
+  border-top: 1px solid var(--cinza);
 
-    min-height: auto;
+  background-color: var(--off-white);
 
-    padding: 35px 20px;
+  color: #82918e;
 
-    border-right: none;
-
-    border-bottom: 1px solid #dddddd;
-  }
-
-
-  .brand {
-    margin-bottom: 30px;
-  }
-
-
-  .brand-text p {
-    font-size: 17px;
-  }
-
-
-  .login-right {
-    width: 100%;
-
-    min-height: auto;
-
-    padding: 40px 25px;
-  }
-
+  font-size: 10px;
 }
 
+/* =========================================
+   RESPONSIVO - TABLET
+========================================= */
 
-@media (max-width: 450px) {
+@media (max-width: 900px) {
 
-  .login-left {
-    padding: 25px 15px;
+  .login-container {
+    max-width: 600px;
+
+    grid-template-columns: 1fr;
   }
 
+  .login-brand-area {
+    min-height: 310px;
 
-  .login-right {
+    padding: 35px 30px;
+  }
+
+  .login-panther {
+    width: 100px;
+    height: 100px;
+  }
+
+  .login-brand-logo {
+    width: 195px;
+  }
+
+  .login-brand-slogan {
+    width: 175px;
+
+    margin-top: 12px;
+  }
+
+  .brand-line,
+  .login-brand-text {
+    display: none;
+  }
+
+  .login-form-area {
+    padding: 50px 55px;
+  }
+}
+
+/* =========================================
+   RESPONSIVO - CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+  .login-header {
+    height: 65px;
+
+    padding: 0 20px;
+  }
+
+  .login-header-panther {
+    width: 35px;
+    height: 35px;
+  }
+
+  .login-header-logo {
+    width: 125px;
+  }
+
+  .login-header-slogan {
+    display: none;
+  }
+
+  .login-content {
+    padding: 25px 17px 40px;
+  }
+
+  .login-container {
+    min-height: auto;
+
+    border-radius: 9px;
+  }
+
+  .login-brand-area {
+    min-height: 255px;
+
     padding: 30px 20px;
   }
 
-
-  .brand {
-    gap: 10px;
+  .login-panther {
+    width: 80px;
+    height: 80px;
   }
 
-
-  .logo-placeholder {
-    width: 55px;
-    height: 55px;
+  .login-brand-logo {
+    width: 175px;
   }
 
-
-  .brand-name h1 {
-    font-size: 21px;
+  .login-brand-slogan {
+    width: 155px;
   }
 
-
-  .brand-name p {
-    font-size: 7px;
-
-    letter-spacing: 1.5px;
+  .login-form-area {
+    padding: 35px 25px 40px;
   }
 
-
-  .brand-text p {
-    font-size: 15px;
+  .login-title h1 {
+    font-size: 27px;
   }
 
-
-  .login-title h2 {
-    font-size: 23px;
+  .login-title p {
+    font-size: 13px;
   }
 
+  .login-footer {
+    padding: 15px 20px;
+  }
+}
 
-  .login-options {
-    flex-direction: column;
+/* =========================================
+   RESPONSIVO - CELULAR PEQUENO
+========================================= */
 
+@media (max-width: 400px) {
+
+  .login-header-logo {
+    width: 110px;
+  }
+
+  .login-form-area {
+    padding: 30px 20px 35px;
+  }
+
+  .login-password-label {
     align-items: flex-start;
 
     gap: 10px;
   }
 
+  .login-register {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+  .login-footer {
+    flex-direction: column;
+
+    gap: 6px;
+
+    text-align: center;
+  }
 }

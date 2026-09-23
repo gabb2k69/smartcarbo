@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Register.css";
 
 import pantera from "../assets/smartcarbo-pantera.png";
@@ -8,10 +9,7 @@ import slogan from "../assets/smartcarbo-slogan.png";
 function Register() {
   const [step, setStep] = useState(1);
 
-  // =========================
   // ETAPA 1 - CONTA
-  // =========================
-
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -21,39 +19,22 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [terms, setTerms] = useState(false);
 
-  // =========================
   // ETAPA 2 - SAÚDE
-  // =========================
-
   const [birthDate, setBirthDate] = useState("");
   const [gender, setGender] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [activityLevel, setActivityLevel] = useState("");
 
-  // =========================
   // ETAPA 3 - OBJETIVO
-  // =========================
-
   const [goal, setGoal] = useState("");
 
-  // =========================
   // ETAPA 4 - PREFERÊNCIAS
-  // =========================
-
   const [restrictions, setRestrictions] = useState([]);
   const [healthCondition, setHealthCondition] = useState("");
   const [foodRating, setFoodRating] = useState("");
 
-  // =========================
-  // ERROS
-  // =========================
-
   const [errors, setErrors] = useState({});
-
-  // =========================
-  // LIMPAR ERRO
-  // =========================
 
   function clearError(field) {
     if (errors[field]) {
@@ -65,7 +46,7 @@ function Register() {
   }
 
   // =========================
-  // ETAPA 1
+  // VALIDAÇÃO ETAPA 1
   // =========================
 
   function validateStep1() {
@@ -100,8 +81,7 @@ function Register() {
     }
 
     if (!terms) {
-      newErrors.terms =
-        "Você precisa aceitar os termos.";
+      newErrors.terms = "Você precisa aceitar os termos.";
     }
 
     setErrors(newErrors);
@@ -110,7 +90,7 @@ function Register() {
   }
 
   // =========================
-  // ETAPA 2
+  // VALIDAÇÃO ETAPA 2
   // =========================
 
   function validateStep2() {
@@ -131,8 +111,7 @@ function Register() {
       Number(height) < 0.5 ||
       Number(height) > 2.5
     ) {
-      newErrors.height =
-        "Informe uma altura válida.";
+      newErrors.height = "Informe uma altura válida.";
     }
 
     if (!weight) {
@@ -141,8 +120,7 @@ function Register() {
       Number(weight) < 1 ||
       Number(weight) > 500
     ) {
-      newErrors.weight =
-        "Informe um peso válido.";
+      newErrors.weight = "Informe um peso válido.";
     }
 
     if (!activityLevel) {
@@ -156,15 +134,14 @@ function Register() {
   }
 
   // =========================
-  // ETAPA 3
+  // VALIDAÇÃO ETAPA 3
   // =========================
 
   function validateStep3() {
     const newErrors = {};
 
     if (!goal) {
-      newErrors.goal =
-        "Selecione um objetivo.";
+      newErrors.goal = "Selecione um objetivo.";
     }
 
     setErrors(newErrors);
@@ -173,7 +150,7 @@ function Register() {
   }
 
   // =========================
-  // ETAPA 4
+  // VALIDAÇÃO ETAPA 4
   // =========================
 
   function validateStep4() {
@@ -212,9 +189,7 @@ function Register() {
       valid = validateStep4();
     }
 
-    if (!valid) {
-      return;
-    }
+    if (!valid) return;
 
     setErrors({});
 
@@ -292,13 +267,11 @@ function Register() {
   }
 
   // =========================
-  // COMPONENTE DE ERRO
+  // MENSAGEM DE ERRO
   // =========================
 
   function ErrorMessage({ children }) {
-    if (!children) {
-      return null;
-    }
+    if (!children) return null;
 
     return (
       <p className="error-message">
@@ -340,7 +313,6 @@ function Register() {
 
       </header>
 
-
       {/* =========================
           CONTEÚDO
       ========================= */}
@@ -356,15 +328,11 @@ function Register() {
           <div className="sidebar-heading">
 
             <div>
-
               <span className="sidebar-label">
                 SMARTCARBO
               </span>
 
-              <h2>
-                Cadastro
-              </h2>
-
+              <h2>Cadastro</h2>
             </div>
 
             <span className="step-counter">
@@ -372,7 +340,6 @@ function Register() {
             </span>
 
           </div>
-
 
           <div className="steps">
 
@@ -394,14 +361,12 @@ function Register() {
 
               <div>
                 <p>Dados da conta</p>
-
                 <small>
                   Informações de acesso
                 </small>
               </div>
 
             </div>
-
 
             {/* ETAPA 2 */}
 
@@ -421,14 +386,12 @@ function Register() {
 
               <div>
                 <p>Informações de saúde</p>
-
                 <small>
                   Seus dados básicos
                 </small>
               </div>
 
             </div>
-
 
             {/* ETAPA 3 */}
 
@@ -448,7 +411,6 @@ function Register() {
 
               <div>
                 <p>Objetivo</p>
-
                 <small>
                   O que você deseja alcançar
                 </small>
@@ -456,14 +418,11 @@ function Register() {
 
             </div>
 
-
             {/* ETAPA 4 */}
 
             <div
               className={`register-step ${
-                step === 4
-                  ? "active"
-                  : ""
+                step === 4 ? "active" : ""
               }`}
             >
 
@@ -473,7 +432,6 @@ function Register() {
 
               <div>
                 <p>Preferências</p>
-
                 <small>
                   Personalize sua experiência
                 </small>
@@ -483,19 +441,15 @@ function Register() {
 
           </div>
 
-
           <div className="sidebar-quote">
-
             <span></span>
 
             <p>
               Disciplina nutre resultados.
             </p>
-
           </div>
 
         </aside>
-
 
         {/* =========================
             ÁREA PRINCIPAL
@@ -503,10 +457,9 @@ function Register() {
 
         <section className="register-main">
 
-
-          {/* ==================================================
+          {/* =========================
               ETAPA 1
-          ================================================== */}
+          ========================= */}
 
           {step === 1 && (
 
@@ -525,20 +478,25 @@ function Register() {
                   </h1>
 
                   <p>
-                    Comece sua jornada para uma vida mais saudável.
+                    Comece sua jornada para uma vida
+                    mais saudável.
                   </p>
 
                 </div>
 
+                {/* LINK PARA LOGIN */}
+
                 <span className="login-link">
+
                   Já tem uma conta?{" "}
-                  <a href="#">
+
+                  <Link to="/login">
                     Fazer login
-                  </a>
+                  </Link>
+
                 </span>
 
               </div>
-
 
               <form
                 className="register-form"
@@ -548,6 +506,8 @@ function Register() {
                 }}
                 noValidate
               >
+
+                {/* NOME */}
 
                 <div className="form-group">
 
@@ -578,6 +538,7 @@ function Register() {
 
                 </div>
 
+                {/* EMAIL */}
 
                 <div className="form-group">
 
@@ -608,6 +569,7 @@ function Register() {
 
                 </div>
 
+                {/* SENHA */}
 
                 <div className="form-group">
 
@@ -631,6 +593,7 @@ function Register() {
                         setPassword(
                           event.target.value
                         );
+
                         clearError("password");
                       }}
                       className={
@@ -662,6 +625,7 @@ function Register() {
 
                 </div>
 
+                {/* CONFIRMAR SENHA */}
 
                 <div className="form-group">
 
@@ -685,6 +649,7 @@ function Register() {
                         setConfirmPassword(
                           event.target.value
                         );
+
                         clearError(
                           "confirmPassword"
                         );
@@ -718,6 +683,7 @@ function Register() {
 
                 </div>
 
+                {/* TERMOS */}
 
                 <div className="terms">
 
@@ -729,6 +695,7 @@ function Register() {
                       setTerms(
                         event.target.checked
                       );
+
                       clearError("terms");
                     }}
                   />
@@ -739,9 +706,9 @@ function Register() {
 
                     <a href="#">
                       Termos de Uso
-                    </a>{" "}
+                    </a>
 
-                    e{" "}
+                    {" "}e{" "}
 
                     <a href="#">
                       Política de Privacidade
@@ -755,6 +722,7 @@ function Register() {
                   {errors.terms}
                 </ErrorMessage>
 
+                {/* BOTÃO */}
 
                 <div className="navigation-buttons only-next">
 
@@ -774,10 +742,9 @@ function Register() {
 
           )}
 
-
-          {/* ==================================================
+          {/* =========================
               ETAPA 2
-          ================================================== */}
+          ========================= */}
 
           {step === 2 && (
 
@@ -796,15 +763,17 @@ function Register() {
                   </h1>
 
                   <p>
-                    Essas informações nos ajudam a personalizar sua experiência.
+                    Essas informações nos ajudam
+                    a personalizar sua experiência.
                   </p>
 
                 </div>
 
               </div>
 
-
               <div className="register-form">
+
+                {/* DATA */}
 
                 <div className="form-group">
 
@@ -820,6 +789,7 @@ function Register() {
                       setBirthDate(
                         event.target.value
                       );
+
                       clearError("birthDate");
                     }}
                     className={
@@ -835,6 +805,7 @@ function Register() {
 
                 </div>
 
+                {/* SEXO */}
 
                 <div className="form-group">
 
@@ -857,6 +828,7 @@ function Register() {
                           setGender(
                             event.target.value
                           );
+
                           clearError("gender");
                         }}
                       />
@@ -864,7 +836,6 @@ function Register() {
                       Feminino
 
                     </label>
-
 
                     <label className="radio-option">
 
@@ -879,6 +850,7 @@ function Register() {
                           setGender(
                             event.target.value
                           );
+
                           clearError("gender");
                         }}
                       />
@@ -886,7 +858,6 @@ function Register() {
                       Masculino
 
                     </label>
-
 
                     <label className="radio-option">
 
@@ -901,6 +872,7 @@ function Register() {
                           setGender(
                             event.target.value
                           );
+
                           clearError("gender");
                         }}
                       />
@@ -917,6 +889,7 @@ function Register() {
 
                 </div>
 
+                {/* ALTURA E PESO */}
 
                 <div className="two-columns">
 
@@ -940,6 +913,7 @@ function Register() {
                           setHeight(
                             event.target.value
                           );
+
                           clearError("height");
                         }}
                         className={
@@ -949,9 +923,7 @@ function Register() {
                         }
                       />
 
-                      <span>
-                        m
-                      </span>
+                      <span>m</span>
 
                     </div>
 
@@ -960,7 +932,6 @@ function Register() {
                     </ErrorMessage>
 
                   </div>
-
 
                   <div className="form-group">
 
@@ -982,6 +953,7 @@ function Register() {
                           setWeight(
                             event.target.value
                           );
+
                           clearError("weight");
                         }}
                         className={
@@ -991,9 +963,7 @@ function Register() {
                         }
                       />
 
-                      <span>
-                        kg
-                      </span>
+                      <span>kg</span>
 
                     </div>
 
@@ -1005,6 +975,7 @@ function Register() {
 
                 </div>
 
+                {/* ATIVIDADE */}
 
                 <div className="form-group">
 
@@ -1019,6 +990,7 @@ function Register() {
                       setActivityLevel(
                         event.target.value
                       );
+
                       clearError(
                         "activityLevel"
                       );
@@ -1058,7 +1030,6 @@ function Register() {
 
                 </div>
 
-
                 <div className="navigation-buttons">
 
                   <button
@@ -1086,10 +1057,9 @@ function Register() {
 
           )}
 
-
-          {/* ==================================================
+          {/* =========================
               ETAPA 3
-          ================================================== */}
+          ========================= */}
 
           {step === 3 && (
 
@@ -1108,13 +1078,13 @@ function Register() {
                   </h1>
 
                   <p>
-                    Isso nos ajuda a montar recomendações mais precisas.
+                    Isso nos ajuda a montar
+                    recomendações mais precisas.
                   </p>
 
                 </div>
 
               </div>
-
 
               <div className="register-form">
 
@@ -1142,11 +1112,11 @@ function Register() {
                     </strong>
 
                     <p>
-                      Reduzir meu peso de forma saudável.
+                      Reduzir meu peso de forma
+                      saudável.
                     </p>
 
                   </button>
-
 
                   <button
                     type="button"
@@ -1170,11 +1140,11 @@ function Register() {
                     </strong>
 
                     <p>
-                      Aumentar meu peso de forma saudável.
+                      Aumentar meu peso de forma
+                      saudável.
                     </p>
 
                   </button>
-
 
                   <button
                     type="button"
@@ -1198,16 +1168,17 @@ function Register() {
                     </strong>
 
                     <p>
-                      Desenvolver massa muscular e força.
+                      Desenvolver massa muscular
+                      e força.
                     </p>
 
                   </button>
 
-
                   <button
                     type="button"
                     className={
-                      goal === "melhorar-alimentacao"
+                      goal ===
+                      "melhorar-alimentacao"
                         ? "goal-card selected"
                         : "goal-card"
                     }
@@ -1215,6 +1186,7 @@ function Register() {
                       setGoal(
                         "melhorar-alimentacao"
                       );
+
                       clearError("goal");
                     }}
                   >
@@ -1228,11 +1200,11 @@ function Register() {
                     </strong>
 
                     <p>
-                      Ter hábitos alimentares mais equilibrados.
+                      Ter hábitos alimentares
+                      mais equilibrados.
                     </p>
 
                   </button>
-
 
                   <button
                     type="button"
@@ -1256,7 +1228,8 @@ function Register() {
                     </strong>
 
                     <p>
-                      Manter meu peso e cuidar da saúde.
+                      Manter meu peso e cuidar
+                      da saúde.
                     </p>
 
                   </button>
@@ -1266,7 +1239,6 @@ function Register() {
                 <ErrorMessage>
                   {errors.goal}
                 </ErrorMessage>
-
 
                 <div className="navigation-buttons">
 
@@ -1295,10 +1267,9 @@ function Register() {
 
           )}
 
-
-          {/* ==================================================
+          {/* =========================
               ETAPA 4
-          ================================================== */}
+          ========================= */}
 
           {step === 4 && (
 
@@ -1317,20 +1288,23 @@ function Register() {
                   </h1>
 
                   <p>
-                    Conte-nos mais sobre suas preferências.
+                    Conte-nos mais sobre suas
+                    preferências.
                   </p>
 
                 </div>
 
               </div>
 
-
               <div className="register-form">
+
+                {/* RESTRIÇÕES */}
 
                 <div className="form-group">
 
                   <label>
-                    Possui alguma restrição alimentar?
+                    Possui alguma restrição
+                    alimentar?
                   </label>
 
                   <div className="restriction-grid">
@@ -1373,6 +1347,7 @@ function Register() {
 
                 </div>
 
+                {/* CONDIÇÃO DE SAÚDE */}
 
                 <div className="form-group">
 
@@ -1414,11 +1389,13 @@ function Register() {
 
                 </div>
 
+                {/* AVALIAÇÃO */}
 
                 <div className="form-group">
 
                   <label>
-                    Como você avalia sua alimentação atual?
+                    Como você avalia sua
+                    alimentação atual?
                   </label>
 
                   <div className="rating-grid">
@@ -1450,7 +1427,8 @@ function Register() {
                         type="button"
                         key={item.value}
                         className={
-                          foodRating === item.value
+                          foodRating ===
+                          item.value
                             ? "rating-card selected"
                             : "rating-card"
                         }
@@ -1485,6 +1463,7 @@ function Register() {
 
                 </div>
 
+                {/* BOTÕES */}
 
                 <div className="navigation-buttons">
 
