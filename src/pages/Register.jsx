@@ -12,8 +12,6 @@ function Register() {
   // ETAPA 1 - CONTA
   // =========================
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -72,13 +70,13 @@ function Register() {
     const newErrors = {};
 
     if (name.trim() === "") {
-      newErrors.name = "Digite seu nome completo.";
+      newErrors.name = "Campo obirgatório.";
     } else if (name.trim().length < 3) {
       newErrors.name = "Digite um nome válido.";
     }
 
     if (email.trim() === "") {
-      newErrors.email = "Digite seu e-mail.";
+      newErrors.email = "Campo obrigatório.";
     } else if (
       !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
     ) {
@@ -86,7 +84,7 @@ function Register() {
     }
 
     if (password === "") {
-      newErrors.password = "Digite uma senha.";
+      newErrors.password = "Campo obrigatório.";
     } else if (password.length < 6) {
       newErrors.password =
         "A senha deve ter pelo menos 6 caracteres.";
@@ -118,7 +116,7 @@ function Register() {
 
     if (!birthDate) {
       newErrors.birthDate =
-        "Informe sua data de nascimento.";
+        "Campo obrigatório.";
     }
 
     if (!gender) {
@@ -126,7 +124,7 @@ function Register() {
     }
 
     if (!height) {
-      newErrors.height = "Informe sua altura.";
+      newErrors.height = "Campo obrigatório.";
     } else if (
       Number(height) < 0.5 ||
       Number(height) > 2.5
@@ -136,7 +134,7 @@ function Register() {
     }
 
     if (!weight) {
-      newErrors.weight = "Informe seu peso.";
+      newErrors.weight = "Campo obrigatório.";
     } else if (
       Number(weight) < 1 ||
       Number(weight) > 500
@@ -147,7 +145,7 @@ function Register() {
 
     if (!activityLevel) {
       newErrors.activityLevel =
-        "Selecione seu nível de atividade.";
+        "Campo obrigatório.";
     }
 
     setErrors(newErrors);
@@ -164,7 +162,7 @@ function Register() {
 
     if (!goal) {
       newErrors.goal =
-        "Selecione um objetivo.";
+        "Campo obrigatório.";
     }
 
     setErrors(newErrors);
@@ -181,7 +179,7 @@ function Register() {
 
     if (!foodRating) {
       newErrors.foodRating =
-        "Avalie sua alimentação atual.";
+        "Campo obrigatório";
     }
 
     setErrors(newErrors);
@@ -193,7 +191,7 @@ function Register() {
   // AVANÇAR
   // =========================
 
-  function handleNext() {
+  async function handleNext() {
     let valid = false;
 
     if (step === 1) {
@@ -226,22 +224,59 @@ function Register() {
         behavior: "smooth",
       });
     } else {
-      alert("Cadastro concluído com sucesso!");
+      try {
+        const dadosUsuario = {
+          nome: name,
+          email: email,
+          senha: password,
+          dataNascimento: birthDate,
+          sexo: gender,
+          altura: Number(height),
+          peso: Number(weight),
+          nivelAtividade: activityLevel,
+          objetivo: goal,
+          restricoes:
+            restrictions.length > 0
+              ? restrictions.join(", ")
+              : "Nenhuma",
+          condicaoSaude: healthCondition || "Nenhuma",
+          avaliacaoAlimentacao:
+            foodRating === "ruim"
+              ? 1
+              : foodRating === "regular"
+              ? 2
+              : foodRating === "boa"
+              ? 3
+              : 4,
+        };
 
-      console.log("Dados do cadastro:", {
-        name,
-        email,
-        password,
-        birthDate,
-        gender,
-        height,
-        weight,
-        activityLevel,
-        goal,
-        restrictions,
-        healthCondition,
-        foodRating,
-      });
+        const resposta = await fetch(
+          "http://localhost:8080/api/v1/usuarios",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dadosUsuario),
+          }
+        );
+
+        if (!resposta.ok) {
+          throw new Error("Erro ao cadastrar usuário.");
+        }
+
+        const usuario = await resposta.json();
+
+        console.log("Usuário cadastrado:", usuario);
+
+        alert("Cadastro concluído com sucesso!");
+      } catch (error) {
+        console.error("Erro no cadastro:", error);
+
+        alert(
+          "Não foi possível realizar o cadastro. Tente novamente."
+        );
+      }
     }
   }
 
@@ -532,7 +567,7 @@ function Register() {
 
                 <span className="login-link">
                   Já tem uma conta?{" "}
-                  <a href="#">
+                  <a href="/login">
                     Fazer login
                   </a>
                 </span>
@@ -619,11 +654,7 @@ function Register() {
 
                     <input
                       id="password"
-                      type={
-                        showPassword
-                          ? "text"
-                          : "password"
-                      }
+                      type="password"
                       placeholder="Digite sua senha"
                       value={password}
                       autoComplete="new-password"
@@ -640,19 +671,6 @@ function Register() {
                       }
                     />
 
-                    <button
-                      type="button"
-                      className="password-button"
-                      onClick={() =>
-                        setShowPassword(
-                          !showPassword
-                        )
-                      }
-                    >
-                      {showPassword
-                        ? "Ocultar"
-                        : "Mostrar"}
-                    </button>
 
                   </div>
 
@@ -673,11 +691,7 @@ function Register() {
 
                     <input
                       id="confirmPassword"
-                      type={
-                        showConfirmPassword
-                          ? "text"
-                          : "password"
-                      }
+                      type="password"
                       placeholder="Confirme sua senha"
                       value={confirmPassword}
                       autoComplete="new-password"
@@ -696,19 +710,6 @@ function Register() {
                       }
                     />
 
-                    <button
-                      type="button"
-                      className="password-button"
-                      onClick={() =>
-                        setShowConfirmPassword(
-                          !showConfirmPassword
-                        )
-                      }
-                    >
-                      {showConfirmPassword
-                        ? "Ocultar"
-                        : "Mostrar"}
-                    </button>
 
                   </div>
 

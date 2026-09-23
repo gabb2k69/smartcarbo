@@ -1,6 +1,30 @@
 import "./Login.css";
 
+import { useState } from "react";
+import authService from "../services/auth";
+
 function Login() {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const resposta = await authService.login(email,password);
+
+      console.log("Login realizado.", resposta);
+
+      localStorage.setItem("user", JSON.stringify(resposta));
+
+      alert("Login realizado com suscesso!");
+    } catch (error) {
+      console.error("Erro no login:", error);
+      alert("E-mail ou senha inválidos.");
+    }
+  };
+
   return (
     <div className="login-page">
 
@@ -49,7 +73,7 @@ function Login() {
 
 
           {/* FORMULÁRIO */}
-          <form className="login-form">
+          <form className="login-form" onSubmit={handleLogin}>
 
             {/* E-MAIL */}
             <div className="form-group">
@@ -63,6 +87,8 @@ function Login() {
                 id="email"
                 name="email"
                 placeholder="seuemail@exemplo.com"
+                vlaue={email}
+                onChange={(e) => setEmail(e.target.ariaValueMin)}
               />
 
             </div>
@@ -82,6 +108,8 @@ function Login() {
                   id="password"
                   name="password"
                   placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.vlaue)}
                 />
 
                 <button
