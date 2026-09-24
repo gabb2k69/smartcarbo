@@ -1,10 +1,12 @@
 import "./Login.css";
-
 import { useState } from "react";
 import authService from "../services/auth";
 
-function Login() {
+import pantera from "../assets/smartcarbo-pantera.png";
+import logoNome from "../assets/smartcarbo-nome.png";
+import slogan from "../assets/smartcarbo-slogan.png";
 
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,15 +14,19 @@ function Login() {
     e.preventDefault();
 
     try {
-      const resposta = await authService.login(email,password);
+      const resposta = await authService.login(email, password);
 
-      console.log("Login realizado.", resposta);
+      console.log("Login realizado:", resposta);
 
-      localStorage.setItem("user", JSON.stringify(resposta));
+      localStorage.setItem(
+        "user",
+        JSON.stringify(resposta)
+      );
 
-      alert("Login realizado com suscesso!");
+      alert("Login realizado com sucesso!");
     } catch (error) {
       console.error("Erro no login:", error);
+
       alert("E-mail ou senha inválidos.");
     }
   };
@@ -33,15 +39,23 @@ function Login() {
 
         <div className="brand">
 
-          <div className="logo-placeholder">
-            <span></span>
-            <span></span>
-          </div>
+          <img
+            src={pantera}
+            alt="Pantera SmartCarbo"
+            className="login-panther"
+          />
 
-          <div className="brand-name">
-            <h1>SMARTCARBO</h1>
-            <p>PLANEJE • TREINE • EVOLUA</p>
-          </div>
+          <img
+            src={logoNome}
+            alt="SmartCarbo"
+            className="login-brand-logo"
+          />
+
+          <img
+            src={slogan}
+            alt="Disciplina nutre resultados"
+            className="login-brand-slogan"
+          />
 
         </div>
 
@@ -57,23 +71,29 @@ function Login() {
 
       </section>
 
-
       {/* LADO DIREITO */}
       <section className="login-right">
 
         <div className="login-container">
 
+          {/* TÍTULO */}
           <div className="login-title">
-            <h2>Bem-vindo de volta!</h2>
+
+            <h2>
+              Bem-vindo de volta!
+            </h2>
 
             <p>
               Faça login para continuar sua jornada.
             </p>
+
           </div>
 
-
           {/* FORMULÁRIO */}
-          <form className="login-form" onSubmit={handleLogin}>
+          <form
+            className="login-form"
+            onSubmit={handleLogin}
+          >
 
             {/* E-MAIL */}
             <div className="form-group">
@@ -87,12 +107,13 @@ function Login() {
                 id="email"
                 name="email"
                 placeholder="seuemail@exemplo.com"
-                vlaue={email}
-                onChange={(e) => setEmail(e.target.ariaValueMin)}
+                value={email}
+                onChange={(e) =>
+                  setEmail(e.target.value)
+                }
               />
 
             </div>
-
 
             {/* SENHA */}
             <div className="form-group">
@@ -109,7 +130,9 @@ function Login() {
                   name="password"
                   placeholder="••••••••"
                   value={password}
-                  onChange={(e) => setPassword(e.target.vlaue)}
+                  onChange={(e) =>
+                    setPassword(e.target.value)
+                  }
                 />
 
                 <button
@@ -122,7 +145,6 @@ function Login() {
               </div>
 
             </div>
-
 
             {/* LEMBRAR / ESQUECI */}
             <div className="login-options">
@@ -146,7 +168,6 @@ function Login() {
 
             </div>
 
-
             {/* ENTRAR */}
             <button
               type="submit"
@@ -157,18 +178,18 @@ function Login() {
 
           </form>
 
-
           {/* DIVISOR */}
           <div className="divider">
 
             <span></span>
 
-            <p>ou continue com</p>
+            <p>
+              ou continue com
+            </p>
 
             <span></span>
 
           </div>
-
 
           {/* LOGIN SOCIAL */}
           <div className="social-login">
@@ -195,7 +216,6 @@ function Login() {
             </button>
 
           </div>
-
 
           {/* CADASTRO */}
           <div className="register">

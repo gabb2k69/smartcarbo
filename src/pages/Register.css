@@ -33,23 +33,16 @@ body {
   color: var(--texto);
 }
 
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .register-header {
   height: 72px;
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 42px;
-
   background-color: var(--verde-escuro);
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -82,10 +75,7 @@ body {
   opacity: 0.9;
 }
 
-
-/* =========================
-   CONTEÚDO
-========================= */
+/* CONTENT */
 
 .register-content {
   width: 100%;
@@ -93,22 +83,15 @@ body {
   min-height: calc(100vh - 72px);
 }
 
-
-/* =========================
-   SIDEBAR
-========================= */
+/* SIDEBAR */
 
 .register-sidebar {
   width: 305px;
   min-width: 305px;
-
   display: flex;
   flex-direction: column;
-
   padding: 45px 32px;
-
   background-color: #f4f8f7;
-
   border-right: 1px solid var(--cinza);
 }
 
@@ -122,9 +105,7 @@ body {
 .sidebar-label {
   display: block;
   margin-bottom: 5px;
-
   color: var(--verde);
-
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -132,30 +113,21 @@ body {
 
 .sidebar-heading h2 {
   margin: 0;
-
   color: var(--verde-escuro);
-
   font-size: 24px;
   font-weight: 700;
 }
 
 .step-counter {
   padding: 6px 9px;
-
   border-radius: 20px;
-
   background-color: var(--verde-claro);
-
   color: var(--verde-escuro);
-
   font-size: 11px;
   font-weight: 700;
 }
 
-
-/* =========================
-   ETAPAS
-========================= */
+/* STEPS */
 
 .steps {
   width: 100%;
@@ -163,53 +135,37 @@ body {
 
 .register-step {
   position: relative;
-
   display: flex;
   align-items: center;
-
   gap: 13px;
-
   min-height: 58px;
-
   margin-bottom: 14px;
-
   color: #8c9b98;
-
   transition: 0.2s ease;
 }
 
 .register-step:not(:last-child)::after {
   content: "";
-
   position: absolute;
-
   left: 15px;
   top: 45px;
-
   width: 1px;
   height: 27px;
-
   background-color: var(--cinza);
 }
 
 .step-number {
   position: relative;
   z-index: 2;
-
   width: 31px;
   min-width: 31px;
   height: 31px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background-color: var(--cinza);
-
   color: #6d7d79;
-
   font-size: 12px;
   font-weight: 700;
 }
@@ -222,9 +178,7 @@ body {
 
 .register-step small {
   display: block;
-
   color: #9aa8a5;
-
   font-size: 10px;
 }
 
@@ -235,9 +189,7 @@ body {
 .register-step.active .step-number {
   background-color: var(--verde-escuro);
   color: var(--branco);
-
-  box-shadow:
-    0 0 0 5px rgba(132, 184, 173, 0.22);
+  box-shadow: 0 0 0 5px rgba(132, 184, 173, 0.22);
 }
 
 .register-step.active small {
@@ -257,10 +209,7 @@ body {
   color: #78938e;
 }
 
-
-/* =========================
-   FRASE
-========================= */
+/* QUOTE */
 
 .sidebar-quote {
   margin-top: auto;
@@ -269,73 +218,50 @@ body {
 
 .sidebar-quote span {
   display: block;
-
   width: 38px;
   height: 2px;
-
   margin-bottom: 12px;
-
   background-color: var(--verde);
 }
 
 .sidebar-quote p {
   max-width: 190px;
-
   margin: 0;
-
   color: #78918d;
-
   font-size: 11px;
-
   line-height: 1.6;
-
   letter-spacing: 0.5px;
 }
 
-
-/* =========================
-   ÁREA PRINCIPAL
-========================= */
+/* MAIN */
 
 .register-main {
   flex: 1;
   min-width: 0;
-
   padding: 58px 70px 70px;
-
   background-color: var(--off-white);
 }
 
 .register-panel {
   width: 100%;
   max-width: 900px;
-
   margin: 0 auto;
 }
 
-
-/* =========================
-   TÍTULOS
-========================= */
+/* TITLES */
 
 .register-title-row {
   position: relative;
-
   display: flex;
-
   justify-content: center;
   align-items: flex-start;
-
   width: 100%;
-
   margin-bottom: 42px;
-
   text-align: center;
 }
 
 .register-title-row > div {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -343,69 +269,46 @@ body {
 
 .step-label {
   display: block;
-
   margin-bottom: 8px;
-
   color: var(--verde);
-
   font-size: 10px;
-
   font-weight: 700;
-
   letter-spacing: 2px;
-
   text-align: center;
 }
 
 .register-title-row h1 {
   margin: 0;
-
   color: var(--verde-escuro);
-
   font-size: 34px;
-
   line-height: 1.15;
-
   text-align: center;
 }
 
 .register-title-row p {
   margin: 11px 0 0;
-
   color: var(--texto-secundario);
-
   font-size: 15px;
-
   line-height: 1.5;
-
   text-align: center;
 }
 
 .login-link {
   position: absolute;
-
   top: 7px;
   right: 0;
-
   color: var(--texto-secundario);
-
   font-size: 13px;
-
   white-space: nowrap;
 }
 
 .login-link a {
   color: var(--verde-escuro);
-
   font-weight: 700;
-
   text-decoration: underline;
 }
 
-
-/* =========================
-   FORMULÁRIO
-========================= */
+/* FORM */
 
 .register-form {
   width: 100%;
@@ -414,47 +317,31 @@ body {
 .form-group {
   display: flex;
   flex-direction: column;
-
   width: 100%;
-
   margin-bottom: 25px;
 }
 
 .form-group > label {
   margin-bottom: 9px;
-
   color: var(--texto);
-
   font-size: 14px;
   font-weight: 700;
 }
 
-
-/* =========================
-   INPUTS
-========================= */
+/* INPUTS */
 
 .form-group input,
 .form-group select {
   width: 100%;
   height: 50px;
-
   padding: 0 15px;
-
   border: 1px solid var(--cinza);
-
   border-radius: 6px;
-
   outline: none;
-
   background-color: var(--branco);
-
   color: var(--texto);
-
   font-family: Arial, Helvetica, sans-serif;
-
   font-size: 14px;
-
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -467,15 +354,10 @@ body {
 .form-group input:focus,
 .form-group select:focus {
   border-color: var(--verde);
-
-  box-shadow:
-    0 0 0 3px rgba(132, 184, 173, 0.18);
+  box-shadow: 0 0 0 3px rgba(132, 184, 173, 0.18);
 }
 
-
-/* =========================
-   ERROS
-========================= */
+/* ERRORS */
 
 .input-error {
   border-color: var(--erro) !important;
@@ -483,18 +365,12 @@ body {
 
 .error-message {
   margin: 7px 0 0;
-
   color: var(--erro);
-
   font-size: 12px;
-
   line-height: 1.4;
 }
 
-
-/* =========================
-   SENHA
-========================= */
+/* PASSWORD */
 
 .password-field {
   position: relative;
@@ -507,22 +383,14 @@ body {
 
 .password-button {
   position: absolute;
-
   right: 12px;
   top: 50%;
-
   transform: translateY(-50%);
-
   border: none;
-
   background: transparent;
-
   color: var(--verde-escuro);
-
   font-size: 12px;
-
   font-weight: 700;
-
   cursor: pointer;
 }
 
@@ -530,62 +398,43 @@ body {
   color: var(--verde);
 }
 
-
-/* =========================
-   TERMOS
-========================= */
+/* TERMS */
 
 .terms {
   display: flex;
   align-items: flex-start;
-
   gap: 9px;
-
   margin-top: 5px;
 }
 
 .terms input {
   width: 17px;
   height: 17px;
-
   margin-top: 1px;
-
   accent-color: var(--verde-escuro);
-
   cursor: pointer;
 }
 
 .terms label {
   color: var(--texto-secundario);
-
   font-size: 12px;
-
   line-height: 1.5;
-
   cursor: pointer;
 }
 
 .terms a {
   color: var(--verde-escuro);
-
   font-weight: 700;
-
   text-decoration: underline;
 }
 
-
-/* =========================
-   BOTÕES
-========================= */
+/* BUTTONS */
 
 .navigation-buttons {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 15px;
-
   margin-top: 35px;
 }
 
@@ -596,19 +445,12 @@ body {
 .primary-button,
 .secondary-button {
   min-height: 46px;
-
   padding: 0 25px;
-
   border-radius: 6px;
-
   font-family: Arial, Helvetica, sans-serif;
-
   font-size: 13px;
-
   font-weight: 700;
-
   cursor: pointer;
-
   transition: 0.2s ease;
 }
 
@@ -616,22 +458,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 14px;
-
   border: none;
-
   background-color: var(--verde-escuro);
-
   color: var(--branco);
-
-  box-shadow:
-    0 4px 10px rgba(1, 79, 71, 0.12);
+  box-shadow: 0 4px 10px rgba(1, 79, 71, 0.12);
 }
 
 .primary-button:hover {
   background-color: #023f39;
-
   transform: translateY(-1px);
 }
 
@@ -641,69 +476,48 @@ body {
 
 .secondary-button {
   border: 1px solid var(--cinza);
-
   background-color: var(--branco);
-
   color: var(--texto);
 }
 
 .secondary-button:hover {
   border-color: var(--verde);
-
   background-color: #f3f8f6;
 }
 
-
-/* =========================
-   RADIO
-========================= */
+/* RADIO */
 
 .radio-options {
   display: flex;
   align-items: center;
-
   gap: 35px;
 }
 
 .radio-option {
   display: flex;
   align-items: center;
-
   gap: 8px;
-
   color: var(--texto);
-
   font-size: 13px;
-
   cursor: pointer;
 }
 
 .radio-option input {
   width: 16px;
   height: 16px;
-
   accent-color: var(--verde-escuro);
-
   cursor: pointer;
 }
 
-
-/* =========================
-   DUAS COLUNAS
-========================= */
+/* TWO COLUMNS */
 
 .two-columns {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 20px;
 }
 
-
-/* =========================
-   UNIDADES
-========================= */
+/* UNITS */
 
 .input-with-unit {
   display: flex;
@@ -716,188 +530,123 @@ body {
 
 .input-with-unit span {
   width: 48px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid var(--cinza);
   border-left: none;
-
   border-radius: 0 6px 6px 0;
-
   background-color: #f1f5f4;
-
   color: var(--texto-secundario);
-
   font-size: 12px;
 }
 
-
-/* =========================
-   OBJETIVOS
-========================= */
+/* GOALS */
 
 .goal-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 14px;
 }
 
 .goal-card {
   min-height: 175px;
-
   padding: 20px;
-
   border: 1px solid var(--cinza);
-
   border-radius: 8px;
-
   background-color: var(--branco);
-
   color: var(--texto);
-
   font-family: Arial, Helvetica, sans-serif;
-
   text-align: left;
-
   cursor: pointer;
-
   transition: 0.2s ease;
 }
 
 .goal-card:hover {
   border-color: var(--verde);
-
   background-color: #f8fbfa;
-
   transform: translateY(-2px);
 }
 
 .goal-card.selected {
   border-color: var(--verde-escuro);
-
   background-color: #eef7f4;
-
-  box-shadow:
-    0 0 0 2px var(--verde);
+  box-shadow: 0 0 0 2px var(--verde);
 }
 
 .goal-icon {
   width: 42px;
   height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin-bottom: 18px;
-
   border-radius: 50%;
-
   background-color: var(--verde-claro);
-
   color: var(--verde-escuro);
-
   font-size: 20px;
-
   font-weight: 700;
 }
 
 .goal-card strong {
   display: block;
-
   margin-bottom: 7px;
-
   color: var(--verde-escuro);
-
   font-size: 15px;
 }
 
 .goal-card p {
   margin: 0;
-
   color: var(--texto-secundario);
-
   font-size: 12px;
-
   line-height: 1.5;
 }
 
-
-/* =========================
-   RESTRIÇÕES
-========================= */
+/* RESTRICTIONS */
 
 .restriction-grid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 10px 30px;
-
   padding: 5px 0;
 }
 
 .check-option {
   display: flex;
   align-items: center;
-
   gap: 8px;
-
   color: var(--texto);
-
   font-size: 13px;
-
   cursor: pointer;
 }
 
 .check-option input {
   width: 17px;
   height: 17px;
-
   accent-color: var(--verde-escuro);
-
   cursor: pointer;
 }
 
-
-/* =========================
-   AVALIAÇÃO
-========================= */
+/* RATING */
 
 .rating-grid {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 12px;
 }
 
 .rating-card {
   min-height: 82px;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   gap: 8px;
-
   border: 1px solid var(--cinza);
-
   border-radius: 7px;
-
   background-color: var(--branco);
-
   color: var(--texto);
-
   cursor: pointer;
-
   transition: 0.2s ease;
 }
 
@@ -912,30 +661,21 @@ body {
 
 .rating-card:hover {
   border-color: var(--verde);
-
   background-color: #f5faf8;
 }
 
 .rating-card.selected {
   border-color: var(--verde-escuro);
-
   background-color: var(--verde-claro);
-
-  box-shadow:
-    0 0 0 2px var(--verde-escuro);
+  box-shadow: 0 0 0 2px var(--verde-escuro);
 }
 
-
-/* =========================
-   RESPONSIVIDADE
-========================= */
+/* RESPONSIVE */
 
 @media (max-width: 1000px) {
-
   .register-sidebar {
     width: 250px;
     min-width: 250px;
-
     padding: 35px 22px;
   }
 
@@ -952,12 +692,9 @@ body {
   }
 }
 
-
 @media (max-width: 750px) {
-
   .register-header {
     height: 65px;
-
     padding: 0 20px;
   }
 
@@ -977,11 +714,8 @@ body {
   .register-sidebar {
     width: 100%;
     min-width: 100%;
-
     padding: 22px;
-
     border-right: none;
-
     border-bottom: 1px solid var(--cinza);
   }
 
@@ -995,9 +729,7 @@ body {
 
   .register-title-row {
     flex-direction: column;
-
     align-items: center;
-
     margin-bottom: 30px;
   }
 
@@ -1011,7 +743,6 @@ body {
 
   .login-link {
     position: static;
-
     margin-top: 10px;
   }
 
@@ -1028,9 +759,7 @@ body {
   }
 }
 
-
 @media (max-width: 480px) {
-
   .register-header {
     padding: 0 15px;
   }
@@ -1057,9 +786,7 @@ body {
 
   .radio-options {
     flex-direction: column;
-
     align-items: flex-start;
-
     gap: 12px;
   }
 
@@ -1069,7 +796,6 @@ body {
 
   .navigation-buttons {
     flex-direction: column-reverse;
-
     align-items: stretch;
   }
 
